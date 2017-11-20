@@ -12,3 +12,7 @@ Therefore, I do not have copyright of any code represented here.
 * BT04 Creating & Deleting Landscapes
 * BT05 A Landscape Setup & Scaling
 * BT06 A Landscape Process
+* BT07 Upgrading Engine Version (I skipped this chaper since I already use the latest version.)
+* BT08 Using Landscape Layers 
+
+
