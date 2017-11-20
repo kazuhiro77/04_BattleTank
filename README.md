@@ -2,7 +2,7 @@
 An open-world head-to-head tank fight with simple AI, terrain, and advanced control system in Unreal 4
 
 All code here is from online lectures of The Unreal Creator course on Udemy.
-I simply follow the each lecture in the course.
+I simply follow each lecture in the course.
 Therefore, I do not have copyright of any code represented here.
 
 ## Lecture List
@@ -11,3 +11,4 @@ Therefore, I do not have copyright of any code represented here.
 * BT03 Setting Up a GitHub "Repo"
 * BT04 Creating & Deleting Landscapes
 * BT05 A Landscape Setup & Scaling
+* BT06 A Landscape Process
