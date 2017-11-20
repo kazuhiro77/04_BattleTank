@@ -9,3 +9,5 @@ Therefore, I do not have copyright of any code represented here.
 * BT01 Intro, Notes & Assets
 * BT02 Game Design Document (GDD)
 * BT03 Setting Up a GitHub "Repo"
+* BT04 Creating & Deleting Landscapes
+* BT05 A Landscape Setup & Scaling
