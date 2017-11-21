@@ -14,5 +14,7 @@ Therefore, I do not have copyright of any code represented here.
 * BT06 A Landscape Process
 * BT07 Upgrading Engine Version (I skipped this chaper since I already use the latest version.)
 * BT08 Using Landscape Layers 
+* BT09 Flat Shading Low Poly Landscape
+* BT10 More Landscaping Tools
 
 
