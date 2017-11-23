@@ -35,5 +35,6 @@ Therefore, I do not have copyright of any code represented here.
 * BT25 Creating an AI Controller Class
 * BT26 Get the Player Controller with C++
 * BT27 Add Tick() to PlayerController
+* BT28 Creating an Out Parameter Method
 
 
