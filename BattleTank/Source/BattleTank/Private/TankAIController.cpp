@@ -2,6 +2,7 @@
 
 #include "TankAIController.h"
 
+	
 void ATankAIController::BeginPlay()
 {
 	Super::BeginPlay();
@@ -15,6 +16,13 @@ void ATankAIController::BeginPlay()
 	{
 		UE_LOG(LogTemp, Warning, TEXT("AIController found player: %s"), *(PlayerTank->GetName()))
 	}
+}
+
+void ATankAIController::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
+		//AimTowardCrosshair();
 }
 
 ATank * ATankAIController::GetPlayerTank() const
@@ -31,4 +39,16 @@ ATank * ATankAIController::GetPlayerTank() const
 ATank* ATankAIController::GetControlledTank() const
 {
 	return Cast<ATank>(GetPawn());
+}
+
+void ATankAIController::AimTowardCrosshair()
+{
+	if (!GetControlledTank())
+	{
+		return;
+	}
+
+	//Get world location if linetrace through crosshair
+	//If it hits the landscape
+	//Tell controlled tank to aim at this point
 }
