@@ -30,5 +30,8 @@ Therefore, I do not have copyright of any code represented here.
 
 * BT21 Delegating to Components
 * BT22 Using virtual and override
+* BT23 Overloading and Polymorphism
+* BT24 Virtual Functions and Vtables
+* BT25 Creating an AI Controller Class
 
 
