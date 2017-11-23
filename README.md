@@ -33,5 +33,6 @@ Therefore, I do not have copyright of any code represented here.
 * BT23 Overloading and Polymorphism
 * BT24 Virtual Functions and Vtables
 * BT25 Creating an AI Controller Class
+* BT26 Get the Player Controller with C++
 
 
