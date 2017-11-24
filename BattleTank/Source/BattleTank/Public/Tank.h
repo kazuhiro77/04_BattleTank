@@ -25,6 +25,10 @@ private:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	
+	UPROPERTY(EditAnywhre, Category = Firing)
+	float LaunchSpeed = 100000; // Sensible starting value of 1000 m/s
+
 
 public:
 	void AimAt(FVector HitLocation);
