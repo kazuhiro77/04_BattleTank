@@ -42,6 +42,7 @@ Therefore, I do not have copyright of any code represented here.
 * BT32 Unify Player & AI Aiming
 
 * BT33 Create Default Sub Objects in C++
+* BT34 BlueprintCallable() 
 
 
 
