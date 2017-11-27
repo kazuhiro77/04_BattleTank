@@ -46,6 +46,9 @@ Therefore, I do not have copyright of any code represented here.
 * BT35 SuggestProjectileVelocity()
 * BT36 Predict Projectile Landing Point
 * BT37 Using FRotators in Unreal
+* BT38 The C++ Compilation Process 
+* BT39 Using Forward Declarations
+* BT40 BlueprintSpawnableComponent()
 
 
 
