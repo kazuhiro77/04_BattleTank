@@ -44,6 +44,7 @@ Therefore, I do not have copyright of any code represented here.
 * BT33 Create Default Sub Objects in C++
 * BT34 BlueprintCallable()
 * BT35 SuggestProjectileVelocity()
+* BT36 Predict Projectile Landing Point
 
 
 
