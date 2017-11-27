@@ -45,6 +45,7 @@ Therefore, I do not have copyright of any code represented here.
 * BT34 BlueprintCallable()
 * BT35 SuggestProjectileVelocity()
 * BT36 Predict Projectile Landing Point
+* BT37 Using FRotators in Unreal
 
 
 

@@ -15,28 +15,9 @@ UTankAimingComponent::UTankAimingComponent()
 	// ...
 }
 
-
 void UTankAimingComponent::SetBarrelReference(UStaticMeshComponent * BarrelToSet)
 {
 	Barrel = BarrelToSet;
-}
-
-// Called when the game starts
-void UTankAimingComponent::BeginPlay()
-{
-	Super::BeginPlay();
-
-	// ...
-	
-}
-
-
-// Called every frame
-void UTankAimingComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
-{
-	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-
-	// ...
 }
 
 void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
@@ -48,30 +29,42 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 
 	FVector OutLaunchVelocity;
 	FVector StartLocation = Barrel->GetSocketLocation(FName("Projectile"));
-	
-	//Calculate teh OutLaunchVelocity
+	bool bHaveAimSolution = UGameplayStatics::SuggestProjectileVelocity
+	(
+		this,												// const UObject							*WorldContextObject		  
+		OutLaunchVelocity,									// FVector									&TossVelocity
+		StartLocation,										// FVector									StartLocation
+		HitLocation,										// FVector									EndLocation 
+		LaunchSpeed,										// float									TossSpeed 
+															// bool										bHighArc					default value = false,    
+															// float									CollisionRadius				default value = 0,
+															// float									OverrideGravityZ			default value = 0,
+		ESuggestProjVelocityTraceOption::DoNotTrace			// ESuggestProjVelocityTraceOption::Type	TraceOption					default value = ESuggestProjVelocityTraceOption::TraceFullPath
+															// const FCollisionResponseParams			ResponseParam				default value = FCollisionResponseParams::DefaultResponse
+															// const TArray < AActor * >				&ActorsToIgnore				default value = TArray<...>()
+															// bool										bDrawDebug					default value = false
+	);
 
-	if (UGameplayStatics::SuggestProjectileVelocity
-			(
-				this,							// const UObject *WorldContextObject
-				OutLaunchVelocity,				// FVector		 &TossVelocity
-				StartLocation,					// FVector		 StartLocation
-				HitLocation,					// FVector		 EndLocation 
-				LaunchSpeed,						// float		 TossSpeed 
-				false,                          // bool			 bHighArc
-				0,								// float		 CollisionRadius
-				0,								// float		 OverrideGravityZ
-				ESuggestProjVelocityTraceOption::DoNotTrace    // ESuggestProjVelocityTraceOption::Type	TraceOption
-												// const FCollisionResponseParams			ResponseParam
-												// const TArray < AActor * >				&ActorsToIgnore
-				    						    // bool			 bDrawDebug
-			)
-		) //Calculate the OutLaunchVelocity
+	//Calculate teh OutLaunchVelocity
+	if (bHaveAimSolution) //Calculate the OutLaunchVelocity
 	{
 		auto AimDirection = OutLaunchVelocity.GetSafeNormal();
 		auto TankName = GetOwner()->GetName();
-		UE_LOG(LogTemp, Warning, TEXT("%s aiming at %s"), *TankName, *(AimDirection.ToString()));
+		MoveBarrelTowards(AimDirection);
 	}
 	// If no solution found do nothing
+}
+
+void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
+{
+	// Work-out difference between current reaction, and AimDreiction
+	auto BarrelRotator = Barrel->GetForwardVector().Rotation();
+	auto AimAsRotator = AimDirection.Rotation();
+	auto DeltaRotator = AimAsRotator - BarrelRotator;
+	UE_LOG(LogTemp, Warning, TEXT("AimAsRotator* %s"), *(DeltaRotator.ToString()))
+
+	// Move the barrel the right amount this frame
+
+	// Given a max elevation speed, and the frame time
 }
 
