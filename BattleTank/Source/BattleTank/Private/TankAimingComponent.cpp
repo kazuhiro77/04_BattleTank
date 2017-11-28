@@ -3,6 +3,7 @@
 #include "TankAimingComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Components/StaticMeshComponent.h"
+#include "Engine/World.h"
 #include "TankBarrel.h"
 
 
@@ -37,7 +38,7 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 		StartLocation,										// FVector									StartLocation
 		HitLocation,										// FVector									EndLocation 
 		LaunchSpeed,										// float									TossSpeed 
-															// bool										bHighArc					default value = false,    
+														// bool										bHighArc					default value = false,    
 															// float									CollisionRadius				default value = 0,
 															// float									OverrideGravityZ			default value = 0,
 		ESuggestProjVelocityTraceOption::DoNotTrace			// ESuggestProjVelocityTraceOption::Type	TraceOption					default value = ESuggestProjVelocityTraceOption::TraceFullPath
@@ -52,13 +53,15 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 		auto AimDirection = OutLaunchVelocity.GetSafeNormal();
 		MoveBarrelTowards(AimDirection);
 
+		FString TankName = Barrel->GetOwner()->GetName();
 		auto Time = GetWorld()->GetTimeSeconds();
-		UE_LOG(LogTemp, Warning, TEXT("%f: Aim solution found"), Time)
+		UE_LOG(LogTemp, Warning, TEXT("%f: Aim solution found: %s"), Time, *TankName)
 	}
 	else
 	{
+		FString TankName = Barrel->GetOwner()->GetName();
 		auto Time = GetWorld()->GetTimeSeconds();
-		UE_LOG(LogTemp, Warning, TEXT("%f: No aiming solution found"), Time)
+		UE_LOG(LogTemp, Warning, TEXT("%f: No aiming solution found: %s"), Time, *TankName)
 	}
 	// If no solution found do nothing
 }

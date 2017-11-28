@@ -50,6 +50,7 @@ Therefore, I do not have copyright of any code represented here.
 * BT39 Using Forward Declarations
 * BT40 BlueprintSpawnableComponent()
 * BT41 Review Our Execution Flow
+* BT42 How to Report Bugs
 
 
 
